@@ -25,7 +25,7 @@ table = PrettyTable(['Asset', 'Amount Owned', 'Value', 'Price', '1H', '24H', '7D
 with open("../my_portfolio.csv", "r") as csv_file:
     csv_reader = csv.reader(csv_file)
     for line in csv_reader:
-        # Remove hidden character commonly in CSVs on Mac
+        # Remove hidden character commonly in CSVs on Mac:
         if '\ufeff' in line[0]:
             line[0] = line[0][1:].upper()
         else:
