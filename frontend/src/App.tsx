@@ -8,12 +8,10 @@ import NotFound from './components/NotFound';
 function App() {
   return (
     <div className="CleanCryptoApp">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Portfolio />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
