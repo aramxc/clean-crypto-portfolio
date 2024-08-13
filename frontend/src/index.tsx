@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root')!); // Initialize root
 root.render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/clean-crypto-portfolio">
       <App />
     </Router>
   </React.StrictMode>

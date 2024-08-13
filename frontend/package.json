@@ -21,7 +21,7 @@
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://aramxc.github.io/clean-crypto-portfolio/",
+  "homepage": "https://aramxc.github.io/clean-crypto-portfolio",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -21,13 +21,12 @@ const Portfolio: React.FC = () => {
           variant="outlined" 
           fullWidth 
         />
-        
+        <Typography variant="body1">
+          <Link href="https://github.com/aramxc" rel="noopener noreferrer">
+            Back to Aaron's Github
+          </Link>
+        </Typography>
       </Box>
-      <Typography variant="body1">
-      <Link href="https://github.com/aramxc" rel="noopener noreferrer">
-        Back to Aaron's Github
-      </Link>
-    </Typography>
     </Container>
   );
 };
