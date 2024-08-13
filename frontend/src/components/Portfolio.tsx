@@ -24,7 +24,7 @@ const Portfolio: React.FC = () => {
         
       </Box>
       <Typography variant="body1">
-      <Link href="https://github.com/aramxc" target="_blank" rel="noopener noreferrer">
+      <Link href="https://github.com/aramxc" rel="noopener noreferrer">
         Back to Aaron's Github
       </Link>
     </Typography>
