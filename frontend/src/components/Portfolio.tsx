@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, TextField, Typography, Box } from '@mui/material';
+import { Container, TextField, Typography, Box, Link } from '@mui/material';
 
 const Portfolio: React.FC = () => {
   return (
@@ -23,6 +23,11 @@ const Portfolio: React.FC = () => {
         />
         
       </Box>
+      <Typography variant="body1">
+      <Link href="https://github.com/aramxc" target="_blank" rel="noopener noreferrer">
+        Back to Aaron's Github
+      </Link>
+    </Typography>
     </Container>
   );
 };
