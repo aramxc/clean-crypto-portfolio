@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Clean Crypto Wallet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple react based crypto portfolio.
+## [View App on Github Pages Here](https://aramxc.github.io/clean-crypto-portfolio/)
+
 
 ## Available Scripts
 
