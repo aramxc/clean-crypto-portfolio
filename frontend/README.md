@@ -1,7 +1,7 @@
 # Clean Crypto Wallet
 
-A simple react based crypto portfolio.
-## [View App on Github Pages Here](https://aramxc.github.io/clean-crypto-portfolio/)
+A simple react based crypto portfolio. In development as of 8/18/24
+## [>> Link to App <<](https://aramxc.github.io/clean-crypto-portfolio/)
 
 
 ## Available Scripts
