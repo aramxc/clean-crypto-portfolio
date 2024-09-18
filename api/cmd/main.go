@@ -1,12 +1,23 @@
 package main
 
 import (
+	"github.com/aramxc/clean-crypto-portfolio/internal/handlers"
 	"github.com/gin-gonic/gin"
-	"github.com/yourusername/clean-crypto-portfolio/internal/handlers"
 )
 
 func main() {
+	// Create a default gin router
 	r := gin.Default()
-	r.GET("/api/ticker-list", handlers.GetTickerList)
+
+	// Set up CORS if needed
+	// r.Use(cors.Default())
+
+	// Register the FetchPortfolio handler
+	r.POST("/portfolio", handlers.FetchPortfolio)
+
+	// Register the FetchTickerList handler
+	r.GET("/ticker-list", handlers.FetchTickerList)
+
+	// Run the server on port 8080
 	r.Run(":8080")
 }
