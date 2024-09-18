@@ -1,15 +1,22 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Portfolio from './components/Portfolio';
-import NotFound from './components/NotFound';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [tickerList, setTickerList] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch('/api/ticker-list')
+      .then(response => response.json())
+      .then(data => setTickerList(data.tickers));
+  }, []);
+
   return (
-    <div className="CleanCryptoApp">
-      <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <div>
+      <h1>Crypto Portfolio</h1>
+      <ul>
+        {tickerList.map(ticker => (
+          <li key={ticker}>{ticker}</li>
+        ))}
+      </ul>
     </div>
   );
 }
