@@ -33,7 +33,7 @@ function App() {
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
-  
+
   function handleSubmit(event: React.MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     if (selectedTickers.length === 0) {
@@ -53,7 +53,7 @@ function App() {
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant="h4" gutterBottom>
-        Crypto Portfolio
+        Clean Crypto Portfolio
       </Typography>
       <TickerList
         tickers={tickers}
