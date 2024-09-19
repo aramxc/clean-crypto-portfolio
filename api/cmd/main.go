@@ -6,18 +6,15 @@ import (
 )
 
 func main() {
-	// Create a default gin router
-	r := gin.Default()
+	router := gin.Default()
 
-	// Set up CORS if needed
-	// r.Use(cors.Default())
+	// API base URL for CoinGecko
+	BASE_URL := "https://api.coingecko.com/api/v3"
 
-	// Register the FetchPortfolio handler
-	r.POST("/portfolio", handlers.FetchPortfolio)
+	// Set up routes
+	router.POST("/portfolio", handlers.FetchPortfolio(BASE_URL))
+	router.GET("/ticker-list", handlers.FetchTickerList(BASE_URL))
 
-	// Register the FetchTickerList handler
-	r.GET("/ticker-list", handlers.FetchTickerList)
-
-	// Run the server on port 8080
-	r.Run(":8080")
+	// Start the server on port 8080
+	router.Run(":8080")
 }

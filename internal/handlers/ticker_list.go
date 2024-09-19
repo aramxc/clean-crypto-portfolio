@@ -6,28 +6,31 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func FetchTickerList(c *gin.Context) {
-	// Load cached data or fetch from API
-	cachedData, err := loadCachedData()
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load data"})
-		return
-	}
+func FetchTickerList(BaseURL string) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// Load cached data or fetch from API
+		cachedData, err := loadCachedData(BaseURL)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load data"})
+			return
+		}
 
-	// Extract tickers from cached data
-	var tickers []gin.H
-	for index, currency := range cachedData.Data {
-		tickers = append(tickers, gin.H{
-			"label": currency.Symbol,
-			"id":    index + 1,
-		})
-	}
+		// Extract tickers from cached data
+		var tickers []gin.H
+		for index, currency := range cachedData.Data {
+			tickers = append(tickers, gin.H{
+				"label": currency.Symbol,
+				"id":    index + 1,
+			})
+		}
 
-	c.JSON(http.StatusOK, tickers)
+		c.JSON(http.StatusOK, tickers)
+	}
 }
 
-func loadCachedData() (*CachedData, error) {
-	// Implement the logic to load cached data
+func loadCachedData(BaseURL string) (*CachedData, error) {
+	// Implement the logic to load cached data or fetch from API
+	// Use BaseURL to construct the full API endpoint
 	// For now, return a placeholder
 	return &CachedData{}, nil
 }

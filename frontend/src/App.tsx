@@ -53,11 +53,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = useCallback(async (url: string) => {
+  const fetchData = useCallback(async (route: string) => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(url);
+      const response = await fetch(`http://localhost:8080/api${route}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -100,7 +100,7 @@ function App() {
         return;
       }
 
-      const data = await fetchData('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false');
+      const data = await fetchData('/tickers');
       if (data) {
         const tickerInfo: TickerInfo[] = data.map((coin: Coin) => ({
           id: coin.id,
@@ -125,9 +125,7 @@ function App() {
     const relevantTickers = tickers.filter(ticker => selectedTickers.includes(ticker.symbol));
     const ids = relevantTickers.map(ticker => ticker.id).join(',');
     
-    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids}&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
-    
-    const data = await fetchData(url);
+    const data = await fetchData(`/portfolio?ids=${ids}`);
     
     if (data && Array.isArray(data)) {
       const filteredData = data.filter((coin: Coin) => 
